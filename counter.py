@@ -1,4 +1,3 @@
-# Add your Python code here. E.g.
 from microbit import *
 
 counter = 9
@@ -21,15 +20,20 @@ while (True):
     display.show(num[counter])
     
     if button_a.is_pressed():
+        sleep(250)
+        
         if counter == 9:
             counter = 0
         else:
             counter += 1
-        
-        sleep(250)
     
-    sleep(1000)
-    counter -= 1
+    if button_b.is_pressed():
+        sleep(250)
+        
+        if counter == 0:
+            counter = 9
+        else:
+            counter -= 1
     
     if counter < 0:
         break
