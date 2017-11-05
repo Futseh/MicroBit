@@ -1,9 +1,8 @@
-# Add your Python code here. E.g.
 from microbit import *
 import radio
 import random
 
-flash = [Image().invert() * (i / 9) for i in range(9, -1, -1)]
+flash = Image("99999:99999:99999:99999:99999")
 
 radio.on()
 
@@ -14,9 +13,9 @@ while True:
     incoming = radio.receive()
     
     if incoming == 'flash':
-        sleep(radnom.randint(50, 350))
-        display.show(flash, delay=100, wait=false)
-        
-        if random.randint(0, 9) == 0:
-            sleep(500)
-            radio.send('flash')
+        sleep(random.randint(50, 350))
+        display.show(flash, delay=100, wait=False)
+        sleep(500)
+        radio.send('flash')
+        sleep(100)
+        display.clear()
