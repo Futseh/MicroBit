@@ -47,10 +47,7 @@ while True:
     display.set_pixel(1, led_y, 9)
     
     if i.get_pixel(1, led_y) != 0:
-        display.show(Image.SAD)
-        sleep(500)
-        display.scroll("Score: " + str(score))
-        break
+        sleep(10)
     
     if frame % FRAMES_PER_WALL_SHIFT == 0:
         i = i.shift_left(1)
