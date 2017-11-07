@@ -1,20 +1,45 @@
 from microbit import *
 
-for y in range(5):
-    for x in range(5):
-        sleep(1000)
-        if x != 0:
-            if display.get_pixel(x-1, y) != 0:
-                display.set_pixel(x-1, y, 0)
-                display.set_pixel(x, y, 9)
-            else:
-                display.set_pixel(x, y, 9)
-        else:
-            if y != 0:
-                if display.get_pixel(4, y-1) != 0:
-                    display.set_pixel(4, y-1, 0)
-                    display.set_pixel(x, y, 9)
+for i in range(2**25):
+    st = bin(i)    
+    num = []
+    
+    for n in range(len(str(st))):
+        if n == 0 or n == 1:
+            pass
+        else: 
+            num.append(9 * int(st[n]))
+    
+    num.reverse()
+    
+    y = 0
+    x = 0
+    
+    for k in range(len(num)):        
+        if k > 4:            
+            if k > 9:
+                y = 2
+                x = k - 10
+                display.set_pixel(x, y, num[k])
+                
+                if k > 14:
+                    if k > 19:
+                        y = 4
+                        x = k - 20
+                        display.set_pixel(x, y, num[k])
                 else:
-                    display.set_pixel(x, y, 9)
+                    y = 3
+                    x = k - 15
+                    display.set_pixel(x, y, num[k])
             else:
-                display.set_pixel(x, y, 9)
+                y = 1
+                x = k - 5
+                display.set_pixel(x, y, num[k])  
+        else:
+            y = 0
+            x = k
+            display.set_pixel(x, y, num[k])
+            
+    sleep(500)
+    display.clear()
+    sleep(500)
