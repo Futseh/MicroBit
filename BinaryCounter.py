@@ -40,6 +40,5 @@ for i in range(2**25):
             x = k
             display.set_pixel(x, y, num[k])
             
-    sleep(10)
+    sleep(1000)
     display.clear()
-    sleep(10)
