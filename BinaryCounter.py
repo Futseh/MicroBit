@@ -1,20 +1,20 @@
 from microbit import *
 
 for i in range(2**25):
-    st = bin(i)    
+    st = bin(i)
     num = []
-    
+
     for n in range(len(str(st))):
         if n == 0 or n == 1:
             pass
-        else: 
+        else:
             num.append(9 * int(st[n]))
-    
+
     num.reverse()
-    
+
     y = 0
     x = 0
-    
+
     for k in range(len(num)):
         if k > 4:
             if k > 9:
@@ -39,6 +39,6 @@ for i in range(2**25):
             y = 0
             x = k
             display.set_pixel(x, y, num[k])
-            
+
     sleep(1000)
     display.clear()
