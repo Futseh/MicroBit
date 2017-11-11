@@ -27,7 +27,7 @@ while True:
     display.show(i)
     
     if button_a.was_pressed():
-        speed -= 8
+        speed -= 9
     elif button_b.was_pressed():
         display.scroll("Score: " + str(score))
     
